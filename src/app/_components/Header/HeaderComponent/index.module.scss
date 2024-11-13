@@ -1,0 +1,33 @@
+.header {
+  padding: 36px 0;
+}
+
+.wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: calc(var(--base) / 2) var(--base);
+}
+
+.logo {
+  left: 90px;
+  position: absolute;
+  margin: auto;
+}
+
+.hide { 
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .wrap {
+    justify-content: space-between;
+  }
+
+  .logo {
+    left: unset;
+    position: unset;
+    margin: unset;
+  }
+}
