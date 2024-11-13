@@ -39,36 +39,56 @@ const FooterComponent = ({ footer }: { footer: Footer }) => {
 
       <div className={classes.footer}>
         <Gutter>
-          <div className={classes.wrap}>
-            <Link href="/">
-              <Image src="/logo-white.svg" alt="logo" width={170} height={50} />
-            </Link>
+          <div className={`${classes.wrap}`}>
+            <div className={classes.innerWrap}>
+              <div className={classes.logoAndSocial}>
+                <Link href="/">
+                  <Image src="/logo-white.png" alt="logo" width={170} height={50} />
+                </Link>
 
-            {/* <p>{footer?.copyright}</p>
+                <div className={classes.socialLinks}>
+                  {navItems.map(item => {
+                    const icon = item?.link?.icon as Media
 
-            <div className={classes.socialLinks}>
-              {navItems.map(item => {
-                const icon = item?.link?.icon as Media
+                    return (
+                      <Link key={item.link.label} href={item.link.url}>
+                        <Image
+                          src={icon?.url}
+                          alt={item.link.label}
+                          width={24}
+                          height={24}
+                          className={classes.socialIcon}
+                        />
+                      </Link>
+                    )
+                  })}
+                </div>
+              </div>
+              <div className={classes.footerContentColumn}>
+                <div className={classes.footerContentRow}>
+                  <p>{footer.companyInfo.companyName}</p>
+                  <p>{footer.companyInfo.companyAddress}</p>
+                  <p>{footer.companyInfo.companyPhone}</p>
+                  <p>{footer.companyInfo.companyEmail}</p>
+                </div>
+                <div className={classes.footerContentRow}>
+                  <h4 className={classes.h4}>Ishikawa Store</h4>
+                  <p>termini e Condizioni</p>
+                  <p>Spedizioni, Cambi e Resi</p>
+                </div>
+                <div className={classes.footerContentRow}>
+                  <h4 className={classes.h4}>Aspetti Legali</h4>
+                  <p>Privacy Policy</p>
+                  <p>Cookie Policy</p>
+                </div>
+              </div>
+            </div>
+          </div>
 
-                return (
-                  <Button
-                    key={item.link.label}
-                    el="link"
-                    href={item.link.url}
-                    newTab={true}
-                    className={classes.socialLinkItem}
-                  >
-                    <Image
-                      src={icon?.url}
-                      alt={item.link.label}
-                      width={24}
-                      height={24}
-                      className={classes.socialIcon}
-                    />
-                  </Button>
-                )
-              })}
-            </div> */}
+          <hr className={classes.horizontalLine} />
+          <div className={classes.footerBottomItems}>
+            <p className={classes.p}>{footer?.copyright}</p>
+            <p className={classes.p}>{footer?.companyVat}</p>
           </div>
         </Gutter>
       </div>

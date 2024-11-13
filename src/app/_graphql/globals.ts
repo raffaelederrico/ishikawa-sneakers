@@ -17,6 +17,15 @@ query Header {
 export const FOOTER = `
   Footer {
   copyright
+  companyVat
+  companyInfo {
+    companyName
+    companyAddress
+    companyCity
+    companyCountry
+    companyEmail
+    companyPhone
+  }
     navItems {
       link ${LINK_FIELDS({ disableAppearance: true })}
 		}
