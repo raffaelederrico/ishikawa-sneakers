@@ -1,0 +1,120 @@
+@import '../../_css/queries.scss';
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+
+  @include small-break {
+    margin: 0;
+  }
+}
+
+.heroWrapper {
+  background-color: var(--color-dark-50);
+  width: 100%;
+  max-width: 1560px;
+  max-height: 884px;
+  display: flex;
+  align-items: center;
+  
+  background-size: cover;
+  background-position: revert;
+  background-repeat: no-repeat;
+  
+  @include small-break {
+    background-size: cover;
+    background-position: center;
+
+  }
+  @include mid-break {
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+.heroTextBox {
+  color: var(--theme-elevation-0);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 15% var(--gutter-h);
+  width: 100%;
+
+  @include mid-break {
+    padding: 10% 30px;
+  }
+
+  @include small-break {
+    padding: 50px 30px;
+  }
+
+  h2,h3,h4,h5 {
+    font-size: 120px;
+    white-space: nowrap;
+    margin: 80px 0;
+
+    @include mid-break {
+      font-size: 48px;
+      margin: 24px 0;
+      white-space: wrap;
+    }
+
+    @include small-break {
+      font-size: 28px;
+      margin: 0 0;
+    }
+  }
+
+  h6 {
+    font-size: 24px;
+    margin: 32px 0;
+
+    @include mid-break {
+      font-size: 12px;
+      margin: 12px 0;
+      white-space: wrap;
+    }
+
+    @include small-break {
+      width: 70%;
+      font-size: 16px;
+      margin: 8px 0;
+    }
+  }
+
+  p {
+    font-size: 22px;
+
+    @include mid-break {
+      font-size: 16px;
+    }
+
+    @include small-break {
+      font-size: 18px;
+    }
+  }
+}
+
+.links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  padding-top: 50px;
+  flex-wrap: wrap;
+  margin: calc(var(--base) * -0.5);
+
+  & > * {
+    margin: calc(var(--base) / 2);
+  }
+
+  @include small-break {
+  margin-bottom: 100px;
+  padding-top: 10px;
+  }
+}
+
+.listItem {
+  font-size: large;
+}

@@ -66,6 +66,7 @@ const FooterComponent = ({ footer }: { footer: Footer }) => {
               </div>
               <div className={classes.footerContentColumn}>
                 <div className={classes.footerContentRow}>
+                  <h4 className={classes.h4}>Company</h4>
                   <p>{footer.companyInfo.companyName}</p>
                   <p>{footer.companyInfo.companyAddress}</p>
                   <p>{footer.companyInfo.companyPhone}</p>
