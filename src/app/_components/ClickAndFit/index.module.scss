@@ -1,0 +1,66 @@
+.clickAndFitWrapper {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  margin: 5px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  text-align: center;
+  line-height: 50px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+
+  // Checkbox input is hidden
+  input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  // Hover effect for non-selected state
+  &:hover {
+    border-color: var(--color-gray-500);
+    background-color: var(--color-gray-100);
+  }
+
+  // Selected state
+  &.selected {
+    border-color: var(--color-red-500);
+    color: var(--color-red-500);
+    background-color: var(--color-red-100); // Add light background for selected state
+    font-weight: bold;
+    box-shadow: 0 0 4px rgba(255, 0, 0, 0.3);
+  }
+}
+
+.label {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  line-height: inherit;
+  font-size: inherit;
+  text-align: center;
+  pointer-events: none; // Ensure clicking only works on the wrapper
+}
+
+@media (max-width: 768px) {
+  .clickAndFitWrapper {
+    width: 40px; // Smaller size for tablets
+    height: 40px;
+    line-height: 40px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .clickAndFitWrapper {
+    width: 35px; // Even smaller size for mobile
+    height: 35px;
+    line-height: 35px;
+    font-size: 10px;
+  }
+}

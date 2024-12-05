@@ -1,93 +1,199 @@
-@import '../../_css/common';
-
-.card  {
-  border: 1px var(--theme-elevation-200) solid;
-  border-radius: 4px;
-  height: 100%;
+.card {
   display: flex;
   flex-direction: column;
-}
-
-.content {
-  padding: var(--base);
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  gap: calc(var(--base) / 2);
-
-  @include small-break {
-    padding: calc(var(--base) / 2);
-    gap: calc(var(--base) / 4);
-  }
-}
-
-.title {
-  margin: 0;
-}
-
-.titleLink {
+  justify-content: flex-end;
+  width: 200px;
+  height: 330px;
+  border-radius: 10px;
+  overflow: hidden;
   text-decoration: none;
-}
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 
-.centerAlign {
-  align-items: center;
-}
-
-.body {
-  flex-grow: 1;
-}
-
-.priceActions {
-  gap: var(--base);
-}
-
-.price {
-  font-weight: 600;
-  margin: 0;
-}
-
-.leader {
-  @extend %label;
-  display: flex;
-  gap: var(--base);
-}
-
-.description {
-  margin: 0;
-}
-
-.hideImageOnMobile {
-  @include mid-break {
-    display: none;
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
   }
 }
 
 .mediaWrapper {
-  text-decoration: none;
-  display: block;
   position: relative;
-  aspect-ratio: 16 / 9;
-}
-
-.image {
-  object-fit: cover;
-}
-
-.placeholder {
-  background-color: var(--theme-elevation-50);
   width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 250px;
+  background-color: #ffffff;
+
+  .placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-size: 16px;
+    color: #ffffff;
+    font-style: italic;
+  }
+
+  .image {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    border-bottom: 1px solid #ddd;
+  }
 }
 
-.actions {
-  display: flex;
-  align-items: center;
+.content {
+  flex-grow: 1;
+  padding: 15px;
+  text-align: center;
 
-  @include mid-break {
-    flex-direction: column;
-    align-items: flex-start;
+  .title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+  }
+
+  .price {
+    font-size: 16px;
+    color: #666;
+    font-weight: 500;
+  }
+}
+
+.bottomBackground {
+  background: url('/BackgroundContact.png') no-repeat center center / cover,
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+  padding: 10px;
+  color: white;
+  text-align: left;
+  width: 100%;
+  height: 30%;
+
+  .label {
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+
+  .title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .price {
+    font-size: 18px;
+    font-weight: bold;
+  }
+}
+
+/* Responsive styles */
+// @media (max-width: 1024px) {
+//   .card {
+//     width: 250px;
+//     height: 330px;
+//   }
+
+//   .mediaWrapper {
+//     height: 200px;
+//   }
+
+//   .content {
+//     padding: 10px;
+
+//     .title {
+//       font-size: 16px;
+//     }
+
+//     .price {
+//       font-size: 14px;
+//     }
+//   }
+
+//   .bottomBackground {
+//     .label {
+//       font-size: 12px;
+//     }
+
+//     .title {
+//       font-size: 14px;
+//     }
+
+//     .price {
+//       font-size: 16px;
+//     }
+//   }
+// }
+
+@media (max-width: 768px) {
+
+  .mediaWrapper {
+    height: 180px;
+  }
+
+  .content {
+    padding: 8px;
+
+    .title {
+      font-size: 14px;
+    }
+
+    .price {
+      font-size: 12px;
+    }
+  }
+
+  .bottomBackground {
+    padding: 8px;
+
+    .label {
+      font-size: 10px;
+    }
+
+    .title {
+      font-size: 12px;
+    }
+
+    .price {
+      font-size: 14px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    width: auto;
+    height: auto;
+  }
+
+  .mediaWrapper {
+    height: 150px;
+  }
+
+  .content {
+    .title {
+      font-size: 12px;
+    }
+
+    .price {
+      font-size: 10px;
+    }
+  }
+
+  .bottomBackground {
+    padding: 5px;
+
+    .label {
+      font-size: 10px;
+    }
+
+    .title {
+      font-size: 10px;
+    }
+
+    .price {
+      font-size: 12px;
+    }
   }
 }

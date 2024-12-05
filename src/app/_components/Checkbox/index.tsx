@@ -4,9 +4,9 @@ import classes from './index.module.scss'
 
 interface CheckboxProps {
   label: string
-  value: string
+  value: string | number
   isSelected: boolean
-  onClickHandler: (value: string) => void
+  onClickHandler: (value: string | number) => void
 }
 
 export const Checkbox: React.FC<CheckboxProps> = ({ label, value, isSelected, onClickHandler }) => {

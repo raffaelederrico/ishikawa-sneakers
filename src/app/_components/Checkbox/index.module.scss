@@ -6,31 +6,60 @@
   gap: 10px;
   white-space: nowrap;
   cursor: pointer;
+
+  &:hover .checkbox {
+    border-color: var(--color-red-700); // Slightly darker border on hover
+  }
 }
 
 .checkbox {
-  -webkit-appearance: none;
+  -webkit-appearance: none; // Removes default checkbox appearance
   appearance: none;
   width: 24px;
   height: 24px;
-  border-radius: 5px;
-  background-color: rgb(255, 255, 255);
-  border: 2px solid var(--color-red-600);
+  border-radius: 5px; // Optional, for rounded corners
+  background-color: #fff; // Default background
+  border: 2px solid var(--color-red-600); // Default border color
   outline: none;
   cursor: pointer;
-}
-
-.checkbox:checked {
-  background-color: var(--color-red-600);
   position: relative;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: rgba(255, 0, 0, 0.05); // Light red background on hover
+  }
+
+  &:focus {
+    box-shadow: 0 0 4px rgba(255, 0, 0, 0.5); // Focus ring for accessibility
+  }
+
+  &:checked {
+    background-color: var(--color-red-600); // Red background when checked
+    border-color: var(--color-red-600);
+  }
+
+  &:checked::before {
+    content: '\2713'; // Checkmark symbol (✓)
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff; // White checkmark
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
 
-.checkbox:checked::before {
-  content: '\2713';
+.checkboxLabel {
   font-size: 14px;
-  font-weight: bold;
-  color: #fff;
-  position: absolute;
-  right: 5px;
-  top: 0;
+  color: #333; // Default label color
+  cursor: pointer;
+
+  @media (max-width: 768px) {
+    font-size: 12px; // Slightly smaller label font for tablets
+  }
+
+  @media (max-width: 480px) {
+    font-size: 10px; // Even smaller label font for mobile
+  }
 }

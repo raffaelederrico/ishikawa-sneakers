@@ -7,8 +7,8 @@ interface IContextType {
   setCategoryFilters: React.Dispatch<React.SetStateAction<string[]>>
   sort: string
   setSort: React.Dispatch<React.SetStateAction<string>>
-  sizeFilters: string[]
-  setSizeFilters: React.Dispatch<React.SetStateAction<string[]>>
+  sizeFilters: number[]
+  setSizeFilters: React.Dispatch<React.SetStateAction<number[]>>
 }
 export const INITIAL_FILTER_DATA = {
   categoryFilters: [],
@@ -24,7 +24,7 @@ export const FilterContext = createContext<IContextType>(INITIAL_FILTER_DATA)
 export const FilterProvider = ({ children }: { children: ReactNode }) => {
   const [categoryFilters, setCategoryFilters] = useState<string[]>([])
   const [sort, setSort] = useState<string>('-createdAt')
-  const [sizeFilters, setSizeFilters] = useState<string[]>([])
+  const [sizeFilters, setSizeFilters] = useState<number[]>([])
 
   return (
     <FilterContext.Provider

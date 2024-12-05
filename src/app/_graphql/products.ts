@@ -7,6 +7,17 @@ export const PRODUCTS = `
     Products(limit: 300) {
       docs {
         slug
+        sizes {
+          id
+          size
+          stock
+          }
+        gallery {
+          image {
+            id
+            url
+          }
+        }
       }
     }
   }
@@ -18,6 +29,17 @@ export const PRODUCT = `
       docs {
         id
         title
+        sizes {
+          id
+          size
+          stock
+        }
+        gallery {
+          image {
+            id
+            url
+          }
+        }
         stripeProductID
         ${SHOES_LINE}
         layout {

@@ -2,15 +2,12 @@
 
 .container {
   width: 100%;
+  height: max-content;
 }
 
 .products {
   display: grid;
-  grid-template-columns: 1fr 75%;
-  gap: 60px;
-
-  @include small-break {
-    grid-template-columns: 100%;
-    gap: 48px;
-  }
+  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+  justify-content: flex-end;
 }

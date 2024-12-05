@@ -10,6 +10,13 @@ const nextConfig = {
       .filter(Boolean)
       .map(url => url.replace(/https?:\/\//, '')),
   },
+  webpack: config => {
+    config.resolve.fallback = {
+      ...config.resolve.fallback,
+      util: false,
+    }
+    return config
+  },
   redirects,
   async headers() {
     const headers = []

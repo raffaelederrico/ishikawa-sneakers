@@ -66,6 +66,37 @@ const Products: CollectionConfig = {
       },
     },
     {
+      name: 'sizes',
+      type: 'array',
+      label: 'Sizes',
+      fields: [
+        {
+          name: 'size',
+          type: 'number',
+          required: true,
+        },
+        {
+          name: 'stock',
+          type: 'number',
+          required: true,
+          defaultValue: 0,
+        },
+      ],
+    },
+    {
+      name: 'gallery',
+      label: 'Gallery',
+      type: 'array',
+      fields: [
+        {
+          name: 'image',
+          type: 'upload',
+          relationTo: 'media',
+          required: true,
+        },
+      ],
+    },
+    {
       type: 'tabs',
       tabs: [
         {
@@ -74,7 +105,7 @@ const Products: CollectionConfig = {
             {
               name: 'layout',
               type: 'blocks',
-              required: true,
+              required: false,
               blocks: [CallToAction, Content, MediaBlock, Archive],
             },
           ],
