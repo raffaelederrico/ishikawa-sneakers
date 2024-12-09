@@ -46,17 +46,22 @@ const ProductThumbs: React.FC<Props> = ({ gallery }) => {
       {/* Main Slider */}
       <div className={classes.mainSlider} ref={emblaMainRef}>
         <div className={classes.mainSliderContainer}>
-          {gallery.map((item, index) => (
-            <div key={`main-${index}`} className={classes.mainSlide}>
-              <Image
-                src={typeof item.image === 'string' ? item.image : item.image.url}
-                alt={`Slide ${index + 1}`}
-                width={800}
-                height={600}
-                className={classes.mainImage}
-              />
-            </div>
-          ))}
+          {gallery.map((item, index) => {
+            console.log('ITEMS:\n\n', item)
+            console.log('ITEMS IMAGE:\n\n', item.image)
+            return (
+              <div key={`main-${index}`} className={classes.mainSlide}>
+                <Image
+                  src={typeof item.image === 'string' ? item.image : item.image.url}
+                  alt={`Slide ${index + 1}`}
+                  width={800}
+                  height={600}
+                  className={classes.mainImage}
+                  unoptimized={true}
+                />
+              </div>
+            )
+          })}
         </div>
       </div>
 
@@ -77,6 +82,7 @@ const ProductThumbs: React.FC<Props> = ({ gallery }) => {
                 width={120}
                 height={80}
                 className={classes.thumbnailImage}
+                unoptimized={true}
               />
             </div>
           ))}

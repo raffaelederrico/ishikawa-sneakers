@@ -22,7 +22,14 @@ const CategoryCardSwiper = ({ category }: CategoryCardProps) => {
       className={classes.card}
       onClick={() => setCategoryFilters([category.id])}
     >
-      <Image src={media.url} alt="category" width={250} height={60} className={classes.linkImage} />
+      <Image
+        src={media.url}
+        alt="category"
+        width={250}
+        height={60}
+        className={classes.linkImage}
+        unoptimized={true}
+      />
       <p className={classes.title}>{category.title}</p>
     </Link>
   )
