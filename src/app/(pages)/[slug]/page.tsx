@@ -12,11 +12,7 @@ import { Hero } from '../../_components/Hero'
 import { generateMeta } from '../../_utilities/generateMeta'
 
 export const dynamic = 'force-dynamic'
-// import Categories from '../../_components/Categories'
 import CategoriesSwiper from '../../_components/CategoriesSwiper'
-import { Gutter } from '../../_components/Gutter'
-
-import classes from './index.module.scss'
 
 export default async function Page({ params: { slug = 'home' } }) {
   const { isEnabled: isDraftMode } = draftMode()
