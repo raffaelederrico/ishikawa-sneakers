@@ -2,6 +2,8 @@ import { slateEditor } from '@payloadcms/richtext-slate'
 import path from 'path'
 import type { CollectionConfig } from 'payload/types'
 
+import { admins } from '../access/admins'
+
 export const Media: CollectionConfig = {
   slug: 'media',
   upload: {
@@ -9,6 +11,9 @@ export const Media: CollectionConfig = {
   },
   access: {
     read: () => true,
+    create: admins,
+    update: admins,
+    delete: admins,
   },
   fields: [
     {
