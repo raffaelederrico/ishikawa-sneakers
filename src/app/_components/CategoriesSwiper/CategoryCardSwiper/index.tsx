@@ -14,6 +14,10 @@ type CategoryCardProps = {
 
 const CategoryCardSwiper = ({ category }: CategoryCardProps) => {
   const media = category.media as Media
+  const mediaUrl =
+    media &&
+    typeof media !== 'string' &&
+    `${process.env.NEXT_PUBLIC_SERVER_URL}/media/${media.filename}`
   const { setCategoryFilters } = useFilter()
 
   return (
@@ -22,7 +26,7 @@ const CategoryCardSwiper = ({ category }: CategoryCardProps) => {
       className={classes.card}
       onClick={() => setCategoryFilters([category.id])}
     >
-      <Image src={media.url} alt="category" width={250} height={60} className={classes.linkImage} />
+      <Image src={mediaUrl} alt="category" width={250} height={60} className={classes.linkImage} />
       <p className={classes.title}>{category.title}</p>
     </Link>
   )

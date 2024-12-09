@@ -46,40 +46,50 @@ const ProductThumbs: React.FC<Props> = ({ gallery }) => {
       {/* Main Slider */}
       <div className={classes.mainSlider} ref={emblaMainRef}>
         <div className={classes.mainSliderContainer}>
-          {gallery.map((item, index) => (
-            <div key={`main-${index}`} className={classes.mainSlide}>
-              <Image
-                src={typeof item.image === 'string' ? item.image : item.image.url}
-                alt={`Slide ${index + 1}`}
-                width={800}
-                height={600}
-                className={classes.mainImage}
-              />
-            </div>
-          ))}
+          {gallery.map((item, index) => {
+            const mediaUrl =
+              typeof item.image !== 'string' &&
+              `${process.env.NEXT_PUBLIC_SERVER_URL}/media/${item.image.filename}`
+            return (
+              <div key={`main-${index}`} className={classes.mainSlide}>
+                <Image
+                  src={mediaUrl}
+                  alt={`Slide ${index + 1}`}
+                  width={800}
+                  height={600}
+                  className={classes.mainImage}
+                />
+              </div>
+            )
+          })}
         </div>
       </div>
 
       {/* Thumbnail Slider */}
       <div className={classes.thumbnailSlider} ref={emblaThumbsRef}>
         <div className={classes.thumbnailSliderContainer}>
-          {gallery.map((item, index) => (
-            <div
-              key={`thumb-${index}`}
-              className={`${classes.thumbnailSlide} ${
-                index === selectedIndex ? classes.selected : ''
-              }`}
-              onClick={() => onThumbClick(index)}
-            >
-              <Image
-                src={typeof item.image === 'string' ? item.image : item.image.url}
-                alt={`Thumbnail ${index + 1}`}
-                width={120}
-                height={80}
-                className={classes.thumbnailImage}
-              />
-            </div>
-          ))}
+          {gallery.map((item, index) => {
+            const mediaUrl =
+              typeof item.image !== 'string' &&
+              `${process.env.NEXT_PUBLIC_SERVER_URL}/media/${item.image.filename}`
+            return (
+              <div
+                key={`thumb-${index}`}
+                className={`${classes.thumbnailSlide} ${
+                  index === selectedIndex ? classes.selected : ''
+                }`}
+                onClick={() => onThumbClick(index)}
+              >
+                <Image
+                  src={mediaUrl}
+                  alt={`Thumbnail ${index + 1}`}
+                  width={120}
+                  height={80}
+                  className={classes.thumbnailImage}
+                />
+              </div>
+            )
+          })}
         </div>
       </div>
     </div>
