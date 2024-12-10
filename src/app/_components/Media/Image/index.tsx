@@ -70,6 +70,7 @@ export const Image: React.FC<MediaProps> = props => {
       height={!fill ? height : undefined}
       sizes={sizes}
       priority={priority}
+      unoptimized={true}
     />
   )
 }
